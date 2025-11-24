@@ -1,0 +1,10 @@
+{
+  "extends": "@repo/typescript-config/app.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+      // used for shadcn cli auto install components
+      "@repo/ui/*": ["../../packages/ui/src/*"]
+    }
+  },
+}

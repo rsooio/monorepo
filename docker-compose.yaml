@@ -1,0 +1,32 @@
+services:
+  pgsql:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  web:
+    image: oven/bun:latest
+    working_dir: /workspace
+    command: "bun run -F web -F api dev"
+    volumes:
+      - ./:/workspace:cached
+      - bun_cache:/workspace/.bun
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@pgsql:5432/postgres
+    ports:
+      - "3000:3000"
+    depends_on:
+      - pgsql
+
+volumes:
+  pgdata:
+  bun_cache:
