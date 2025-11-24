@@ -1,10 +1,11 @@
 import { Elysia } from 'elysia';
 
 export const app = new Elysia({ prefix: '/api' })
+  .listen(3000)
+  .get('/health', () => 'OK')
   .get('/', async () => {
     return 'Hello Elysia';
-  })
-  .listen(2999);
+  });
 
 console.log(
   `API server running at http://${app.server?.hostname}:${app.server?.port}`,

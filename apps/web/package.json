@@ -3,13 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "bun --bun vite --port 3000 --host",
+    "dev": "bun --bun vite --port 3000 --host --clearScreen false",
     "build": "bun --bun vite build && tsc",
     "serve": "bun --bun vite preview",
-    "test": "bun --bun vitest run",
-    "format": "bun --bun biome format",
-    "lint": "bun --bun biome lint",
-    "check": "bun --bun biome check"
+    "test": "bun --bun vitest run"
   },
   "dependencies": {
     "@elysiajs/eden": "latest",

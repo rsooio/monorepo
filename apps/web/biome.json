@@ -1,15 +1,8 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.3.7/schema.json",
-	"extends": "//",
+  "extends": "//",
   "files": {
     "ignoreUnknown": false,
-    "includes": [
-      "**/src/**/*",
-      "**/.vscode/**/*",
-      "**/index.html",
-      "**/vite.config.js",
-      "!**/src/routeTree.gen.ts",
-      "!**/src/styles.css"
-    ]
+    "includes": ["**", "!**/src/routeTree.gen.ts"]
   }
 }
